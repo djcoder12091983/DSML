@@ -1,1 +1,6 @@
+// linear regression
 https://share.google/aimode/qibxSrZIxxf9NIR2I
+https://share.google/aimode/241SRNQoYFXYGzCPR
+
+// logistic regression
+https://share.google/aimode/6abBoluJkqfn4G7DD
