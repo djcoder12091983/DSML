@@ -248,3 +248,91 @@ ax.grid(axis='y', linestyle='--', alpha=0.7) # Grid only on Y-axis for scale
 
 plt.tight_layout()
 plt.show()
+
+
+from sklearn.pipeline import Pipeline
+from sklearn.impute import KNNImputer
+
+# now we will apply some clean logic and then apply KNN again and evaluate again
+# Pre-process: Replace 0 with NaN
+# (This must happen before the pipeline because it's a data-cleaning step)
+Pima_Diabetes_clean_df = Pima_Diabetes_df.copy()
+for col in label_counts.keys():
+    Pima_Diabetes_clean_df[col] = Pima_Diabetes_clean_df[col].replace(0, np.nan)
+
+X = Pima_Diabetes_clean_df.drop('Outcome', axis=1)
+y = Pima_Diabetes_clean_df['Outcome']
+
+# Build the Integrated Pipeline
+# Order: Scale -> Impute -> Classify
+# We scale first so the KNNImputer uses "fair" distances to find neighbors
+pipeline = Pipeline([
+    ('scaler', StandardScaler()),       # Standardize features
+    ('imputer', KNNImputer(n_neighbors=2)), # Fill NaNs using neighbors
+    ('classifier', KNeighborsClassifier(n_neighbors=3)) # Final Model
+])
+
+# Split and Train
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# The pipeline handles everything!
+pipeline.fit(X_train, y_train)
+
+# Predict
+predictions = pipeline.predict(X_test)
+
+# To see the imputed/scaled data for debugging:
+# X_processed = pipeline.named_steps['scaler'].transform(X_train)
+# X_imputed = pipeline.named_steps['imputer'].transform(X_processed)
+
+#print("Final Processed Data (Scaled & Imputed):\n", X_imputed)
+
+# Evaluate Performance
+cm = confusion_matrix(y_test, predictions)
+print("Confusion Matrix:\n", cm)
+print("\nClassification Report:\n", classification_report(y_test, predictions))
+
+# visualization of confusion matrix
+plt.figure(figsize=(8, 6))
+# Using ConfusionMatrixDisplay for a professional look
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=np.unique(y))
+disp.plot(cmap='Blues', values_format='d')
+
+plt.title('Confusion Matrix after Data Imputation')
+plt.show()
+
+
+
+# this time we will try to find optimal hyperparameters using grid search
+from sklearn.model_selection import GridSearchCV
+
+# Select Range of Values
+param_grid = {
+    # Odd numbers to avoid ties
+    'imputer__n_neighbors': [3, 5, 7, 9, 11, 15],
+    'classifier__n_neighbors': [3, 5, 7, 9, 11, 15],
+    
+    'classifier__weights': ['uniform', 'distance'],   # Weighting by distance or not
+    'classifier__metric': ['euclidean', 'manhattan']  # Try different distance math
+}
+
+# Run Grid Search
+grid = GridSearchCV(pipeline, param_grid, cv=5, scoring='accuracy')
+grid.fit(X_train, y_train)
+
+# EVALUATION (The most important part)
+# Use the BEST model found by grid search to predict on the UNSEEN test set
+best_model = grid.best_estimator_
+y_pred = best_model.predict(X_test)
+
+# Detailed Metrics
+print(f"Best Parameters: {grid.best_params_}")
+print("\n--- Evaluation Metrics ---")
+print(classification_report(y_test, y_pred))
+
+# Visualization
+cm = confusion_matrix(y_test, y_pred)
+disp = ConfusionMatrixDisplay(confusion_matrix=cm)
+disp.plot(cmap='Blues')
+plt.title("Confusion Matrix of Best KNN Model")
+plt.show()
