@@ -4,3 +4,9 @@ https://share.google/aimode/241SRNQoYFXYGzCPR
 
 // logistic regression
 https://share.google/aimode/6abBoluJkqfn4G7DD
+
+// EDA
+https://share.google/aimode/MEgANWZCciacwEWGD
+
+// KNN
+https://www.google.com/search?q=explain+a+data+on+which+I+can+perform+KNN+and+what+are+pre+statistical+on+data+and+how+to+evaluate+it&sca_esv=4b6756fe69c99ed1&sxsrf=ANbL-n48GTKAfk5Y7HedBnRkz78L80pTGg%3A1774757989357&source=hp&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpFZYo9qIX3pM4_jubAu4b8EMlqEiHspSYihYiQG6o1SqlL3GGffvN8oOHBq_5nueSLXenCq6GOB45DA7LRD-sPtF3AV2oQlZq4leIu3yPLRbyDFgB9qLkX8Q7zPHmvY_DxXRsSewRsOWZi-c1eIah2Gaaipemtn4HhrcTLTYuDn1bFamlmga_-e3KjNH0nfKPLQVjFQ&aep=1&ntc=1&sa=X&ved=2ahUKEwiIgZLcoMSTAxWB1jQHHQU7NzAQ2J8OegQIERAE&biw=1536&bih=703&mstk=AUtExfCqCqK_2lBJXptOdFaduR708unhAr1i7pRjrxaVnh5hGnfgrsqrnzYbBC9A9XnmJX_qQBV_r09sAfstntLYGgCG56MAEJsaxFTy128teGdQAdtP2I9c1nx-vW0EyygZ_acnc651CdNo9UsJb-euWs3jTVldPLcegx-ed42q0IyCdneMkQhmS3CmsWrE2auK1NAG0_0XmTDXCMCdAHtNASqLeHO8QV3KjgL6e-d7ia0s2CPkYsvHItlUM4xsh1yDFJFSDNkehC5P7XMfpTtejlNdxEH_aOlLYtIF0WBCLC0OrT5nIVKjt4ja_eZW94jO5FOHruF1IeLNY9AUZG_87hEd2Btfme9P9Y4NlOMeVeTM7WkwL8DPjHh8raNUrPrnW1wJv4zG8Qqu8eJ4g5EswwrY7nqFTuc7KA65W-Vu_xYy5QE2LJWPUyQXrcnLt2dskMFk7LtwDUQ&csuir=1&mtid=dajIaZ7rF_eYseMPg8bS6AU&udm=50

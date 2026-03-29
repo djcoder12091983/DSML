@@ -163,3 +163,19 @@ for i, col in enumerate(cols_to_plot):
 
 plt.tight_layout() # Fixes overlapping titles/labels
 plt.show()
+
+# KDE plots for job salary
+cols_to_plot = ['job_title', 'education_level', 'industry', 'location']
+
+fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(8, 15))
+axes = axes.flatten()
+
+# draw each plot
+for i, col in enumerate(cols_to_plot):
+    sns.kdeplot(data=jobsalary_df, x='salary', ax=axes[i], hue=col, fill=True)
+    
+    # Customizing each subplot
+    axes[i].set_title(f'Distribution of {col}', fontsize=14, fontweight='bold')
+
+plt.tight_layout() # Fixes overlapping titles/labels
+plt.show()
