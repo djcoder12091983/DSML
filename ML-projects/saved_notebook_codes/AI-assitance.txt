@@ -9,4 +9,10 @@ https://share.google/aimode/6abBoluJkqfn4G7DD
 https://share.google/aimode/MEgANWZCciacwEWGD
 
 // KNN
-https://www.google.com/search?q=explain+a+data+on+which+I+can+perform+KNN+and+what+are+pre+statistical+on+data+and+how+to+evaluate+it&sca_esv=4b6756fe69c99ed1&sxsrf=ANbL-n48GTKAfk5Y7HedBnRkz78L80pTGg%3A1774757989357&source=hp&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpFZYo9qIX3pM4_jubAu4b8EMlqEiHspSYihYiQG6o1SqlL3GGffvN8oOHBq_5nueSLXenCq6GOB45DA7LRD-sPtF3AV2oQlZq4leIu3yPLRbyDFgB9qLkX8Q7zPHmvY_DxXRsSewRsOWZi-c1eIah2Gaaipemtn4HhrcTLTYuDn1bFamlmga_-e3KjNH0nfKPLQVjFQ&aep=1&ntc=1&sa=X&ved=2ahUKEwiIgZLcoMSTAxWB1jQHHQU7NzAQ2J8OegQIERAE&biw=1536&bih=703&mstk=AUtExfDHZ94gOzjcylf78DKJmHW3hr4_eln9sqLICfYXtMTDbIqCsRuMjmtnAM9uWL8YkKUMg59Nyjczw0XFkGbd7wIOf8JtsN1EvWf9Xg_9w0JjhT90mXJ5GEMrXaics8i3II2xfY9XnJlCmse9RIRvAGKdwr_w_4eoxF92rBz4KzlN2J1ArXB9fpCKT7xvwHuEj8qFo4fYDZUGnH0w5BDtGjOEgDzCVKI_m3n0FCDXMlxTAPJI6RZITgGwREjHmU29FffvGKo-s5adAUpCdCextw_vYSArRlVAP8gM3us98aGlt_Sx6sw3kBPnO0ffsYSB0h7jElpFXK29m3-gfgPoEUqbbC3AfansGqCIw0ZCRVE0DqWY_U-jqZCG49lGKzMbrN5DmufsvXfPmZAku5_tDPOB8aEvWIWQyT20PwUg9BTdS3HyYQjebwOyI3_RXRk0e9rxgi4oUwo&csuir=1&mtid=dajIaZ7rF_eYseMPg8bS6AU&udm=50
+https://share.google/aimode/5TpgU4g6fRLdj8rE1
+
+// DT
+https://share.google/aimode/sdV0noYdmEjgFNzgn
+
+// NB
+https://share.google/aimode/y79jFwR8XHMiwKQM7
