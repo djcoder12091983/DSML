@@ -1,3 +1,6 @@
+// general discussions on ML at scale or may some other generalized ML topics
+https://share.google/aimode/yvjrPz7cVGhHTQxJB
+
 // linear regression
 https://share.google/aimode/qibxSrZIxxf9NIR2I
 https://share.google/aimode/241SRNQoYFXYGzCPR
@@ -16,3 +19,6 @@ https://share.google/aimode/sdV0noYdmEjgFNzgn
 
 // NB
 https://share.google/aimode/y79jFwR8XHMiwKQM7
+
+// SVM
+https://share.google/aimode/UdUHQG4awykL0CT5q
