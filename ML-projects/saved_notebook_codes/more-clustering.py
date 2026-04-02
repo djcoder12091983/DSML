@@ -258,3 +258,96 @@ for e in eps_values:
         print(f"Eps: {e:.1f} | Silhouette Score: {sil:.3f} | Davies-Bouldin Index: {dbi:.3f}")
     else:
         print(f"Eps: {e:.1f} | Not enough clusters to evaluate.")
+        
+
+# THIS time we will focus on PCA before dunning DBscan
+from sklearn.decomposition import PCA
+
+# Scale first (PCA and DBSCAN require this!)
+# already StandardScaler data will have no impact again, harmless
+X_scaled = StandardScaler().fit_transform(X_transformed)
+
+# 2. Reduce 19 dimensions to 5 (keeping most of the 'meaning')
+pca = PCA(n_components=5) 
+X_pca = pca.fit_transform(X_scaled)
+
+print(f"Variance explained by 5 components: {sum(pca.explained_variance_ratio_):.2%}")
+
+# New 'min_samples' based on 5 dimensions
+new_min_samples = 2 * X_pca.shape[1]
+
+# Run DBSCAN on the reduced data
+db = DBSCAN(eps=1.5, min_samples=new_min_samples).fit(X_pca)
+
+labels = dbscan.fit_predict(X_pca)
+
+# Evaluation Metrics
+# INTRODUCING safe calculations
+# Filter out the noise (-1)
+core_labels = labels[labels != -1]
+core_samples = X_pca[labels != -1]
+
+# Count unique clusters (excluding noise)
+unique_clusters = len(set(core_labels))
+
+# Safe Evaluation
+if unique_clusters > 1:
+    sil = silhouette_score(X_pca[labels != -1], labels[labels != -1])
+    dbi = davies_bouldin_score(X_pca[labels != -1], labels[labels != -1])
+    print(f"Silhouette Score: {sil:.3f}")
+    print(f"Davies-Bouldin Index: {dbi:.3f}")
+else:
+    print(f"Evaluation Skipped: Found {unique_clusters} cluster(s).")
+    print("Action: Try decreasing 'eps' or decreasing 'min_samples' to split the data.")
+    
+    
+# K-DISTANT plot we will use to find optimal hyperparameters eps and n_samples
+
+# SET HYPERPARAMETER: min_samples (k)
+# Rule of thumb: k = 2 * number of dimensions
+k_neighbors = 2 * X_pca.shape[1] 
+
+# CALCULATE K-NEAREST NEIGHBORS
+# We use the scaled feature matrix 'X_pca' from earlier
+neigh = NearestNeighbors(n_neighbors=k_neighbors)
+nbrs = neigh.fit(X_pca)
+distances, indices = nbrs.kneighbors(X_pca)
+
+# SORT DISTANCES
+# We take the distance to the k-th neighbor (the last column)
+# and sort them from smallest to largest
+k_distances = np.sort(distances[:, k_neighbors - 1], axis=0)
+
+# PLOT THE K-DISTANCE GRAPH
+plt.figure(figsize=(10, 6))
+plt.plot(k_distances, color='blue', lw=2)
+plt.title(f'K-Distance Plot (min_samples={k_neighbors})', fontsize=14)
+plt.xlabel('Data Points (Sorted by Distance)', fontsize=12)
+plt.ylabel(f'Distance to {k_neighbors}-th Neighbor', fontsize=12)
+
+# Visually identify the 'elbow' where the slope sharply increases
+# Let's say the elbow is at y=0.3 for this example
+plt.axhline(y=0.3, color='red', linestyle='--', label='Optimal Eps (Elbow)')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.show()
+
+# NOW we will run HDBscan on PCA data
+from sklearn.cluster import HDBSCAN
+
+# RUN HDBSCAN
+# min_cluster_size: The minimum size you want your groups to be.
+# min_samples: Controls how 'conservative' the clustering is (defaults to min_cluster_size).
+clusterer = HDBSCAN(min_cluster_size=50, min_samples=new_min_samples, gen_min_span_tree=True)
+labels = clusterer.fit_predict(X_pca)
+
+# EVALUATION (Excluding Noise -1)
+mask = labels != -1
+if len(np.unique(labels[mask])) > 1:
+    sil = silhouette_score(X_pca[mask], labels[mask])
+    dbi = davies_bouldin_score(X_pca[mask], labels[mask])
+    
+    print(f"Clusters found: {len(np.unique(labels[mask]))}")
+    print(f"Silhouette Score: {sil:.3f}")
+    print(f"Davies-Bouldin Index: {dbi:.3f}")
+    print(f"Fraud/Noise detected: {np.sum(labels == -1)} transactions")
