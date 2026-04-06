@@ -1,5 +1,9 @@
 // general discussions on ML at scale or may some other generalized ML topics
 https://share.google/aimode/yvjrPz7cVGhHTQxJB
+https://share.google/aimode/R7x2Xz5jQ9XNGkZwo -- currently going on
+https://share.google/aimode/5a32pD2uDXukkbB9q (a long discussions on ML topics like regression) -- DONE
+https://share.google/aimode/OeKACz68yBt6Dng9c (same long discussions on KNN + Naive bayse + DT) -- DONE
+https://share.google/aimode/a0cglb755plD1JEEl (same long discussions on SVM + clustering) -- DONE
 
 // linear regression
 https://share.google/aimode/qibxSrZIxxf9NIR2I
@@ -26,3 +30,6 @@ https://share.google/aimode/UdUHQG4awykL0CT5q
 // clustering
 https://share.google/aimode/z7pvc5KxLZdiW5TXa
 https://share.google/aimode/I006ngI9G7b6iRyBN
+
+// dimension reduction
+https://share.google/aimode/8cuMf397nTkHRd26R -- currently going on

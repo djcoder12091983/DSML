@@ -1,0 +1,28 @@
+1. Standard error
+2. ANOVA (F-statistics) vs T test (PAIRED/UNPAIRED)
+3. ANOVA + Chi Squares in regression -> dimension reduction + good predictors
+4. PCA Math
+5. Category encoding -> avoid overfitting + target leakage + math behind smoothing
+6. Low/High variances feature selection
+7. log odds -> linear scaling
+8. Logistic regression -> log loss (cross entropy)
+9. ROC-AUC (classification evaluation metrics)
+10. Standard scaling features (understand the math) -> gradient descent computation becomes so easy (understand the math deeply)
+11. R square (goodness of fit) and adjusted R square (feature selection) [understand the math behind it]
+12. F1 score and harmony mean
+13. Standardization and Normalization for scaling
+14. Poor estimator issues with NB
+15. MNB advanced smoothing + GNB math in detail
+16. ID3 and CART math details and splitting algorithm - > GINI impurity and ENTROPY based splitting (Math)
+17. Regression tree pruning -> cost complexity pruning
+18. Cross validation + Hyper parameter tuning
+19. Algorithms for GINI impurity + MSE computations for node splitting in CART or CLASSIFICATION tree
+20. Boosting -> ADABoost + XGBoosting in Decision tree
+21. Mathematics behind SVM -> Hinge Loss + Kernel trick
+22. Linear vs Non linear model -> new data point prediction depends on support vectors (Math)
+23. LDA -> SVM performs better (LDA math compared to PCA)
+24. PCA (Math) -> Explore linear transformation in detail (Linear algebra - Matrix decomposition)
+25. Internal evaluation metrics of clustering (Math)
+26. Linkages in hierarchical clsutering (Math)
+27. *** TRAGET LEAKAGE in different ML contexts (avoid overfitting) ***
+28. LDA (Math) how it helps SVM

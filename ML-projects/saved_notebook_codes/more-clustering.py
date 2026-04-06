@@ -351,3 +351,39 @@ if len(np.unique(labels[mask])) > 1:
     print(f"Silhouette Score: {sil:.3f}")
     print(f"Davies-Bouldin Index: {dbi:.3f}")
     print(f"Fraud/Noise detected: {np.sum(labels == -1)} transactions")
+
+
+# UNDERSTANDING how finding K in K means by applying hierarchy clustering and cut using dandogram
+
+#from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
+from sklearn.datasets import make_blobs
+
+# Generate synthetic data with 3 clear clusters
+X, _ = make_blobs(n_samples=50, centers=3, cluster_std=0.60, random_state=42)
+
+# Perform Hierarchical Clustering
+# 'ward' linkage minimizes the variance of clusters being merged
+Z = linkage(X, method='ward')
+
+# Define the threshold distance to "cut" the tree
+# Visually, we look for the largest vertical gap to place this line
+cut_distance = 7.0
+
+# Visualization
+plt.figure(figsize=(10, 6))
+plt.title("Dendrogram with Optimal K Cut-off")
+plt.xlabel("Sample Index")
+plt.ylabel("Distance (Dissimilarity)")
+
+# Plotting the dendrogram
+# color_threshold automatically colors clusters separated by the cut
+dendrogram(Z, color_threshold=cut_distance, above_threshold_color='grey')
+
+# Drawing the horizontal cut line
+plt.axhline(y=cut_distance, color='r', linestyle='--', label=f'Cut Line (d={cut_distance})')
+plt.legend()
+plt.show()
+
+# Extracting the number of clusters (K)
+labels = fcluster(Z, t=cut_distance, criterion='distance')
+print(f"Total Clusters (K) identified: {len(np.unique(labels))}")
