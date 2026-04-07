@@ -33,3 +33,12 @@ https://share.google/aimode/I006ngI9G7b6iRyBN
 
 // dimension reduction
 https://share.google/aimode/8cuMf397nTkHRd26R -- currently going on
+
+// time-series
+https://share.google/aimode/tqzELl0IjmYCPloO6 -- currently going on
+
+// anomaly detection
+https://share.google/aimode/L6Sc9e0DSAFBM7zeB -- currently going on
+
+// recommendation system
+https://share.google/aimode/dHMPSymxtHfeSwEwy -- currently goin on

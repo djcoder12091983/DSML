@@ -26,3 +26,4 @@
 26. Linkages in hierarchical clsutering (Math)
 27. *** TRAGET LEAKAGE in different ML contexts (avoid overfitting) ***
 28. LDA (Math) how it helps SVM
+29. Time series + ML algorithms (including ANOMALY detection)
